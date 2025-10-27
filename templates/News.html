@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Admin: Add Review Data</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configure Tailwind to use the custom green color and Inter font -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'brand-green': '#74B72E', 
+              'dark-primary': '#1F2937',
+            },
+            fontFamily: {
+                sans: ['Inter', 'sans-serif'],
+            },
+          }
+        }
+      }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #e4e6e8;
+        }
+    </style>
+</head>
+<body class="min-h-screen antialiased flex flex-col items-center justify-center p-4">
+
+    <!-- Success Modal/Message Box (Hidden by default) -->
+    <div id="successMessage" class="fixed inset-0 bg-gray-900 bg-opacity-50 hidden flex items-center justify-center z-50">
+        <div class="bg-white p-8 rounded-xl shadow-2xl max-w-sm w-full text-center border-t-4 border-brand-green transform transition-all scale-100">
+            <svg class="mx-auto h-12 w-12 text-brand-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <h3 class="mt-2 text-xl font-semibold text-gray-900">Data Added!</h3>
+            <p class="mt-1 text-sm text-gray-500">Review data was successfully added for training.</p>
+        </div>
+    </div>
+
+    <!-- Data Entry Card -->
+    <div class="w-full max-w-3xl bg-white rounded-3xl shadow-2xl p-8 md:p-12 my-10">
+        <header class="mb-8 border-b pb-4">
+            <h1 class="text-3xl font-extrabold text-dark-primary text-center">
+                Admin Panel: Add Review Data
+            </h1>
+            <p class="text-center text-gray-500 mt-2">
+                Enter new review data and classify it as Real or Fake for model training.
+            </p>
+        </header>
+
+        <form id="addDataForm" action="/addreviewdata" method="post" class="space-y-6">
+            
+            <!-- Review Textarea -->
+            <div class="form-group">
+                <label for="reviewText" class="block text-sm font-medium text-gray-700 mb-2">Review Text:</label>
+                <textarea id="reviewText" name="review_text" rows="6" required
+                          placeholder="Enter the review text here..."
+                          class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl resize-none focus:border-brand-green focus:ring-brand-green focus:outline-none transition duration-150 shadow-sm text-gray-700"></textarea>
+            </div>
+
+            <!-- Review Label Selection -->
+            <div class="form-group">
+                <label for="reviewLabel" class="block text-sm font-medium text-gray-700 mb-2">Review Label (Classification):</label>
+                <select id="reviewLabel" name="review_label" required
+                        class="block w-full px-4 py-3 border-2 border-gray-300 rounded-xl shadow-sm focus:border-brand-green focus:ring-brand-green focus:outline-none text-gray-700 bg-white">
+                    <option value="" disabled selected>Select Classification</option>
+                    <option value="Real">Real Review (Authentic)</option>
+                    <option value="Fake">Fake Review (Deceptive)</option>
+                </select>
+            </div>
+
+            <!-- Submit Button and Back Link -->
+            <div class="flex flex-col sm:flex-row justify-between items-center pt-4 space-y-4 sm:space-y-0">
+                <a href="/adminlogin" class="text-sm text-gray-500 hover:text-dark-primary transition duration-150">
+                    &larr; Back to Admin Login
+                </a>
+                
+                <button type="submit" 
+                        class="w-full sm:w-auto bg-brand-green text-white font-bold py-3 px-10 rounded-xl hover:bg-green-700 transition duration-300 shadow-lg transform hover:scale-[1.02] active:scale-[0.98]">
+                    Submit Data
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Get the form and the message box elements
+        const form = document.getElementById('addDataForm');
+        const successMessage = document.getElementById('successMessage');
+
+        // Handle form submission
+        form.addEventListener('submit', function(event) {
+            // Prevent the default form submission to simulate a successful AJAX call
+            event.preventDefault(); 
+            
+            // 1. Show the custom success message box
+            successMessage.classList.remove('hidden');
+            
+            // Log the submitted data to the console (simulated action)
+            const reviewText = document.getElementById('reviewText').value;
+            const reviewLabel = document.getElementById('reviewLabel').value;
+            console.log('Submitted Data for Server:');
+            console.log('Review:', reviewText);
+            console.log('Label:', reviewLabel);
+
+            // 2. Redirect back to the main app after a short delay
+            setTimeout(function() {
+                // Hide the message box before redirecting (optional)
+                successMessage.classList.add('hidden');
+                // Redirect to the main review detector page
+                window.location.href = "/input"; 
+            }, 2500); // Wait 2.5 seconds before redirecting
+            
+            // Optionally, clear the form fields
+            form.reset();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Fake News Detection Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Font Awesome for social media icons -->
+    <script src="https://kit.fontawesome.com/106dacd3a9.js" crossorigin="anonymous"></script>
+    
+    <!-- Configure Tailwind to use the custom green color and Inter font -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'brand-green': '#74B72E', // The established green color
+              'dark-primary': '#1F2937', // Dark gray for formal contrast
+            },
+            fontFamily: {
+                sans: ['Inter', 'sans-serif'],
+            },
+          }
+        }
+      }
+    </script>
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb;
+        }
+        /* Style for the social media icons */
+        .fa {
+            padding: 8px;
+            width: 32px;
+            height: 32px;
+            text-align: center;
+            text-decoration: none;
+            margin: 0 4px;
+            border-radius: 50%;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.3s;
+        }
+        .fa:hover {
+            opacity: 0.7;
+        }
+        .fa-facebook { background: #3B5998; color: white; }
+        .fa-twitter { background: #55ACEE; color: white; }
+        .fa-google { background: #dd4b39; color: white; }
+        .fa-linkedin { background: #007bb5; color: white; }
+    </style>
+</head>
+<body class="min-h-screen antialiased flex flex-col">
+
+    <!-- Header / Navigation Bar (Standardized) -->
+    <header class="shadow-lg bg-white sticky top-0 z-10">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Title/Brand -->
+            <div class="items-center">
+                <h1 class="text-2xl font-extrabold text-brand-green tracking-wide pb-1 inline-block border-b-2 border-brand-green">
+                    Fake News Detection
+                </h1>
+            </div>
+            
+            <!-- Navigation Links -->
+            <div class="flex space-x-3 sm:space-x-4">
+                <!-- Home Button -->
+                <a href="/input" class="text-sm sm:text-base font-semibold px-3 py-1 sm:px-4 sm:py-2 border-2 rounded-xl text-brand-green border-brand-green hover:bg-brand-green hover:text-white transition duration-300 shadow-sm">
+                    Home
+                </a>
+                <!-- Blog Button -->
+                <a href="/blog" class="text-sm sm:text-base font-semibold px-3 py-1 sm:px-4 sm:py-2 border-2 rounded-xl text-brand-green border-brand-green hover:bg-brand-green hover:text-white transition duration-300 shadow-sm">
+                    Blog
+                </a>
+                <!-- SignUp Button -->
+                <a href="/SignUp" class="text-sm sm:text-base font-semibold px-3 py-1 sm:px-4 sm:py-2 border-2 rounded-xl text-brand-green border-brand-green hover:bg-brand-green hover:text-white transition duration-300 shadow-sm">
+                    SignUp
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Area: Login Form -->
+    <main class="flex-grow flex items-center justify-center p-4 md:p-8" style="background-color: #e4e6e8;">
+        
+        <!-- Login Card Container -->
+        <div class="w-full max-w-md p-8 bg-white rounded-xl shadow-2xl border-t-4 border-brand-green">
+            <h2 class="text-3xl font-bold text-gray-800 text-center mb-6">Login to Continue</h2>
+            
+            <form action="/login" method="POST" class="space-y-6">
+                
+                <!-- Email Input -->
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter email" required
+                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-brand-green focus:border-brand-green focus:outline-none transition duration-150 shadow-sm">
+                </div>
+                
+                <!-- Password Input -->
+                <div>
+                    <label for="pwd" class="block text-sm font-medium text-gray-700 mb-1">Password:</label>
+                    <input type="password" id="pwd" name="password" placeholder="Enter password" required
+                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-brand-green focus:border-brand-green focus:outline-none transition duration-150 shadow-sm">
+                </div>
+                
+                <!-- Buttons (Traditional Login/Register) -->
+                <div class="flex flex-col sm:flex-row justify-between items-center space-y-3 sm:space-y-0 sm:space-x-4 pt-2">
+                    <!-- Submit Button (Login) -->
+                    <button type="submit" 
+                            class="w-full sm:w-1/2 bg-dark-primary text-white font-bold py-3 px-4 rounded-xl hover:bg-gray-700 transition duration-300 shadow-lg transform hover:scale-[1.01] active:scale-[0.99]">
+                        Login
+                    </button>
+                    
+                    <!-- Register Button -->
+                    <a href="/register" class="w-full sm:w-1/2">
+                        <button type="button" 
+                                class="w-full border-2 border-brand-green text-brand-green font-semibold py-3 px-4 rounded-xl hover:bg-brand-green hover:text-white transition duration-300 shadow-md">
+                            Register
+                        </button>
+                    </a>
+                </div>
+            </form>
+            
+        </div>
+    </main>
+    
+    <!-- Footer (Standardized) -->
+    
+    
+    
+</body>
+ <script>
+    // Hardcoded credentials for simulation (In a real app, this would be an API call)
+    const CORRECT_EMAIL = "user@example.com";
+    const CORRECT_PASSWORD = "password123";
+
+    /**
+     * Displays a custom toast-style message box.
+     * @param {string} message The text to display.
+     * @param {string} type 'error' or 'success' for styling.
+     */
+    function showMessage(message, type) {
+        const messageBox = document.getElementById('messageBox');
+        
+        // Define styles based on type
+        let bgColor, textColor, icon;
+        if (type === 'error') {
+            bgColor = 'bg-red-500';
+            textColor = 'text-white';
+            icon = '<i class="fas fa-times-circle mr-2"></i>';
+        } else {
+            bgColor = 'bg-brand-green';
+            textColor = 'text-white';
+            icon = '<i class="fas fa-check-circle mr-2"></i>';
+        }
+
+        const html = `
+            <div id="toast" class="flex items-center w-full max-w-xs p-4 rounded-lg shadow-xl ${bgColor} ${textColor} transform translate-x-0 transition-all duration-500">
+                ${icon}
+                <div class="text-sm font-medium">${message}</div>
+                <button type="button" onclick="hideMessage()" class="ml-auto -mx-1.5 -my-1.5 ${textColor} hover:text-white rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 inline-flex items-center justify-center h-8 w-8">
+                    <span class="sr-only">Close</span>
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                </button>
+            </div>
+        `;
+
+        messageBox.innerHTML = html;
+        messageBox.classList.remove('translate-x-full'); // Slide in
+        
+        // Auto-hide after 5 seconds
+        setTimeout(hideMessage, 5000);
+    }
+
+    /**
+     * Hides the custom message box.
+     */
+    function hideMessage() {
+        const messageBox = document.getElementById('messageBox');
+        messageBox.classList.add('translate-x-full'); // Slide out
+        setTimeout(() => {
+            messageBox.innerHTML = '';
+        }, 300); // Clear content after transition
+    }
+
+
+    /**
+     * Handles the login form submission.
+     * @param {Event} event The form submission event.
+     */
+    function handleLogin(event) {
+        event.preventDefault(); // Stop the form from submitting normally
+
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('pwd').value;
+
+        if (email === CORRECT_EMAIL && password === CORRECT_PASSWORD) {
+            showMessage("Login Successful! Redirecting...", 'success');
+            // Simulate successful redirect after a short delay
+            setTimeout(() => {
+                window.location.href = "/input"; // Example redirect to the main app page
+            }, 1000);
+        } else {
+            showMessage("Error: Invalid email or password. Please try again.", 'error');
+        }
+    }
+</script>
+</html>

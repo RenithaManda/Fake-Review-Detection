@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Auth system</title>
+ <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<style>
+/* Brand Green Color: #74B72E */
+.btn-brand-green {
+ background-color: #74B72E;
+ border-color: #74B72E;
+color: white;
+ transition: background-color 0.3s, border-color 0.3s;
+}
+ .btn-brand-green:hover, .btn-brand-green:focus {
+ background-color: #5a9123; /* A slightly darker green for hover effect */
+border-color: #5a9123;
+color: white;
+ box-shadow: 0 0 0 0.2rem rgba(116, 183, 46, 0.5); /* Custom focus ring */
+ }
+
+ /* Removed unnecessary .col-sm-8 styles as they interfered with Bootstrap's grid */
+
+/* Formal and Branded Container Styles */
+.container {
+background-color: white; /* Pure white for formality */
+border-radius: 12px; /* Slightly more rounded */
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Stronger, professional shadow */
+padding: 40px;
+max-width: 600px; 
+/* Removing fixed margin-top/bottom as body handles centering */
+margin: 0;
+/* Accent line using brand green */
+border-top: 6px solid #74B72E; 
+transition: all 0.3s ease-in-out;
+/* Ensure container does not stretch out of place */
+flex-shrink: 0; 
+}
+.container:hover {
+/* Subtle greenish glow on hover */
+box-shadow: 0 15px 40px rgba(116, 183, 46, 0.25); 
+}
+
+/* Formal Heading Style */
+.container h2 {
+color: #1F2937; /* Dark primary color */
+padding-bottom: 10px;
+margin-bottom: 20px !important;
+border-bottom: 2px solid #E5E7EB; /* Subtle separator line */
+font-weight: 700 !important;
+ }
+
+
+ .btn {
+ margin-right: 10px;
+padding: 10px 20px;
+ }
+header {
+background-color: #343a40;
+padding: 15px;
+text-align: center;
+ }
+/* --- Centering the container perfectly in the middle of the screen --- */
+body{
+ /* Full screen setup for centering */
+ min-height: 100vh;
+display: flex;
+justify-content: center; /* Horizontal centering */
+ align-items: center; /* Vertical centering */
+margin: 0;
+
+/* background: linear-gradient(rgba(0,0,0,0.4)50%,rgba(0,0,0,0.4)50%), url('https://placehold.co/1200x800/212529/EAECEF?text=SECURE+BACKGROUND');
+background-size: cover;
+ background-attachment: fixed;
+color: white; */
+}
+
+</style>
+<body>
+
+<div class="container text-center">
+<div class="row justify-content-center">
+<div class="col-sm-12">
+<h2 class="text-dark font-weight-bold mb-4">Welcome to the Authentication System</h2>
+<p class="text-dark mb-4">Please select an option to proceed with user registration or login.</p>
+ <!-- Changed btn-primary to btn-brand-green -->
+ <a href="/register" class="btn btn-brand-green mt-3">Register</a>
+ <a href="/login" class="btn btn-dark mt-3">Login</a>
+</div>
+ </div>
+</div>
+
+</body>
+</html>

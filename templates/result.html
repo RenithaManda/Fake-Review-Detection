@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Fake Review Detection Results</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Font Awesome for social media icons -->
+    <script src="https://kit.fontawesome.com/106dacd3a9.js" crossorigin="anonymous"></script>
+    
+    <!-- Configure Tailwind to use the custom green color and Inter font -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'brand-green': '#74B72E', // The established green color
+              'dark-primary': '#1F2937', // Dark gray for formal contrast
+            },
+            fontFamily: {
+                sans: ['Inter', 'sans-serif'],
+            },
+          }
+        }
+      }
+    </script>
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb;
+        }
+        /* Style for the social media icons */
+        .fa {
+            padding: 8px;
+            width: 32px;
+            height: 32px;
+            text-align: center;
+            text-decoration: none;
+            margin: 0 4px;
+            border-radius: 50%;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.3s;
+        }
+        .fa:hover {
+            opacity: 0.7;
+        }
+        .fa-facebook { background: #3B5998; color: white; }
+        .fa-twitter { background: #55ACEE; color: white; }
+        .fa-google { background: #dd4b39; color: white; }
+        .fa-linkedin { background: #007bb5; color: white; }
+    </style>
+</head>
+<body class="min-h-screen antialiased flex flex-col">
+
+    <!-- Header / Navigation Bar (Standardized - Updated for Fake Review Detection) -->
+    <header class="shadow-lg bg-white sticky top-0 z-10">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Title/Brand -->
+            <div class="items-center">
+                <!-- Updated Brand Title -->
+                <h1 class="text-2xl font-extrabold text-brand-green tracking-wide pb-1 inline-block border-b-2 border-brand-green italic">
+                    Fake Review Detection
+                </h1>
+            </div>
+            
+            <!-- Navigation Links -->
+            <div class="flex space-x-3 sm:space-x-4">
+                <!-- Home Button -->
+                <a href="/input" class="text-sm sm:text-base font-semibold px-3 py-1 sm:px-4 sm:py-2 border-2 rounded-xl text-dark-primary border-dark-primary hover:bg-dark-primary hover:text-white transition duration-300 shadow-sm">
+                    Home
+                </a>
+                <!-- Blog Button -->
+                <a href="/blog" class="text-sm sm:text-base font-semibold px-3 py-1 sm:px-4 sm:py-2 border-2 rounded-xl text-dark-primary border-dark-primary hover:bg-dark-primary hover:text-white transition duration-300 shadow-sm">
+                    Blog
+                </a>
+                <!-- SignUp Button -->
+                <a href="/register" class="text-sm sm:text-base font-semibold px-3 py-1 sm:px-4 sm:py-2 border-2 rounded-xl text-dark-primary border-dark-primary hover:bg-dark-primary hover:text-white transition duration-300 shadow-sm">
+                    SignUp
+                </a>
+                <!-- Login Button (since this page is likely accessed after signing up/before logging in) -->
+                <a href="/login" class="text-sm sm:text-base font-semibold px-3 py-1 sm:px-4 sm:py-2 border-2 rounded-xl text-brand-green border-brand-green hover:bg-brand-green hover:text-white transition duration-300 shadow-sm">
+                    Login
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Area: Prediction Results -->
+    <main class="flex-grow flex items-center justify-center p-4 md:p-8 min-h-[400px]" style="background-color: #e4e6e8;">
+        
+        <!-- Results Container -->
+        <div class="text-center p-8 bg-white rounded-xl shadow-2xl">
+            <!-- Jinja Templating Logic (Updated for Review Detection) -->
+            {% if prediction_text == 1%}
+            <h2 class="text-4xl font-extrabold text-brand-green">Genuine Review! <span role="img" aria-label="A plus sign">✅</span></h2>
+            {% elif prediction_text == 0%}
+            <h2 class="text-4xl font-extrabold text-red-600">Deceptive Review <span role="img" aria-label="Sad face">❌</span></h2>
+            {% else %}
+            <!-- Placeholder if no prediction is available -->
+            <h2 class="text-4xl font-extrabold text-gray-500">Analysis Pending...</h2>
+            {% endif %}
+        </div>
+    </main>
+    
+    <!-- Footer (Standardized) -->
+    <footer class="bg-dark-primary text-white py-10 shadow-inner">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                
+                <!-- Column 1: Developers -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4 border-b border-brand-green pb-1 inline-block">Developed By</h4>
+                    <ul class="list-none space-y-1 mt-2 text-gray-300">
+                        
+                        <li>Renitha Manda</li>
+                        
+                    </ul>
+                </div>
+                
+                <!-- Column 2: Contact Us -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4 border-b border-brand-green pb-1 inline-block">Contact Us</h4>
+                    <ul class="list-none space-y-1 mt-2 text-gray-300">
+                        <li><i class="fas fa-phone mr-2 text-brand-green"></i> +91 xxxxxxx898</li>
+                        <li><i class="fas fa-envelope mr-2 text-brand-green"></i> xxxxx@gmail.com</li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3: Social Media -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4 border-b border-brand-green pb-1 inline-block">Social Media</h4>
+                    <div class="flex justify-center md:justify-start space-x-2 mt-2">
+                        <a href="#" class="fa fa-facebook" aria-label="Facebook"></a>
+                        <a href="#" class="fa fa-twitter" aria-label="Twitter"></a>
+                        <a href="#" class="fa fa-google" aria-label="Google Plus"></a>
+                        <a href="#" class="fa fa-linkedin" aria-label="LinkedIn"></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    
+</body>
+</html>
