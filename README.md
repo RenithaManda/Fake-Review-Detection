@@ -1,16 +1,1 @@
-# Fake-Review-Detection-
-
-- [Problem Statement](#problem-statement)
-- [Contributors](#contributors)
-
-> Fake Review Detection using Machine Learning
-
-## Problem Statement 
-
-Problem Statement - Fake Review detection on 20 Chicago Hotel Review Dataset using various supervised Machine Learning Techniques and classify the review whether it is fake or real.
-
-## contributors
-
-- [Priyanshu Singh](https://github.com/reveurguy) - Frontend part
-- [Shubham Pawar](https://github.com/shubham5351) - ML Part
-- [Rutuja Nemane](https://github.com/rutujanemane) - Deployment using Flask
+This project is a complete web application designed to analyze the authenticity of user-generated content, specifically hotel reviews, to detect deceptive or fabricated opinions. The core of the project involves a detection algorithm (running on the backend, like Flask) trained on a Kaggle hotel review dataset to analyze the textual patterns indicative of a fake review.
